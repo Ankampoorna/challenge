@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Clock</title>
+  <style>
+    body { font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; transition:0.3s; }
+    .clock { font-size: 3em; padding:20px; border-radius:10px; background:#222; color:#fff; }
+    button { margin-top:20px; padding:10px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="clock" id="clock"></div>
+    <button onclick="toggleMode()">Toggle Mode</button>
+  </div>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+    function toggleMode(){
+      document.body.style.background = document.body.style.background === "black" ? "white":"black";
+    }
+  </script>
+</body>
+</html>
